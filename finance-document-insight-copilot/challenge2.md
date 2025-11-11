@@ -1,85 +1,82 @@
-# Challenge 2: Integrate Document Intelligence and Automate Financial Workflows
-
+# Challenge 2: Integrate Power Automate Tools within Copilot Studio for Finance Document Automation
+  
 ## Problem Statement
 
-Finance departments rely on accuracy and speed for document handling, but manual invoice processing and expense validation are time-consuming and error-prone. In this challenge, you’ll integrate **Azure Document Intelligence** and **Power Automate** to automatically extract key financial fields from invoices, validate them, and trigger approval workflows.  
-
-This stage moves the Finance Copilot from static retrieval to automated extraction and workflow orchestration.
+While your foundational chatbot can answer FAQs and guide document uploads, enterprise finance environments also require automated workflows to handle document processing and approval efficiently. In this challenge, you will extend your Copilot agent to include document processing automation directly within the Copilot Studio portal using Power Automate connectors and Azure Document Intelligence.
 
 ## Goals
 
-- Use **Azure Document Intelligence** to extract invoice data (amounts, tax, supplier, dates).  
-- Automate financial validation and approval using **Power Automate**.  
-- Store structured data in **Dataverse** or **Excel** for analytics and dashboard integration.
+- Automate finance document processing and field extraction through Copilot Studio's integrated Power Automate tools.
+- Enable Microsoft Teams based notifications for finance managers during approval workflows.
+- Store and manage all extracted document data within Dataverse in a structured format.
 
-## Datasets
+## Datasets  
 
-- Use the dataset available in `C:\datasets\invoices_sample_set.pdf`.  
-- This dataset includes sample invoices and financial forms for testing extraction workflows.  
-- You’ll also store extracted data as structured entries in **Dataverse** or Excel.
+- Use the pre-provided dataset in `C:\datasets\invoices_sample_set.pdf`.
+- This dataset contains sample invoices and financial documents for testing extraction workflows.
 
-## Challenge Objectives
+## Challenge Objectives  
 
-1. **Azure Document Intelligence Setup**
-   - In the Azure Portal, create a new **Azure AI Document Intelligence** resource named `finance-docintel`.  
-   - Under **Studio**, open **Custom Extraction Projects** and upload sample invoices from `C:\datasets\invoices_sample_set.pdf`.  
-   - Train a custom model to recognize key fields:  
-     - `Invoice ID`, `Vendor Name`, `Date`, `Subtotal`, `Tax`, `Total`, `Payment Terms`.  
-   - Once trained, **publish** the model to generate an endpoint and API key.  
-   - Test the model using the **Analyze** option in Document Intelligence Studio to confirm accurate field extraction.
+1. **Set Up Azure Document Intelligence Service**
+   - Navigate to Azure portal and create an **Azure AI Document Intelligence** resource.
+   - Complete the setup wizard and note down your **endpoint** and **API key**.
+   - Navigate to **Document Intelligence Studio** and familiarize yourself with prebuilt models for invoices.
+   - Test the prebuilt invoice model with sample documents to understand field extraction capabilities.
 
-2. **Azure Function for Extraction**
-   - Create an **Azure Function App** named `finance-extraction-func`.  
-   - Use an **HTTP trigger** that:  
-     - Accepts uploaded documents from Copilot or Power Automate.  
-     - Calls the **Document Intelligence endpoint** for field extraction.  
-     - Returns parsed results (JSON format) containing key-value pairs.  
-   - Secure the endpoint with a managed identity or API key configuration.  
-   - Test using Postman or cURL with a sample document payload.
+2. **Open Copilot Studio and Access Power Automate Tools**
+   - Launch **Microsoft Copilot Studio** from your Microsoft 365 portal.
+   - Open the **FinanceInsight-Foundation** agent you created in the previous challenge.
+   - From the left navigation panel, go to **Tools → Power Automate** to view available connectors and builder options.
 
-3. **Power Automate Integration**
-   - Create a **Power Automate Flow** named `InvoiceApprovalFlow`.  
-   - Add triggers and actions:  
-     - **Trigger:** When a document is uploaded to SharePoint or submitted through Copilot.  
-     - **Action 1:** Call the Azure Function (`finance-extraction-func`) to extract data.  
-     - **Action 2:** Parse and save extracted data to **Dataverse** or **Excel** (fields: Vendor, Amount, Tax, Total, Date).  
-     - **Action 3:** Generate an **adaptive approval card** in Teams for the finance manager.  
-     - **Action 4:** Upon approval, mark the record as “Approved” and notify the requestor in Teams.  
-   - Test the flow by uploading an invoice and confirming end-to-end automation.
+3. **Create a Power Automate Flow within Copilot Studio**
+   - In Copilot Studio, navigate to **Tools → Power Automate → Create Flow**.
+   - Name the flow **ProcessFinanceDocument**.
+   - Add the following steps:
+     1. **Trigger:** Use **When a Copilot topic runs this flow**.
+     2. **Action 1:** Add an **Azure AI Document Intelligence** action to analyze the uploaded document.
+     3. **Action 2:** Parse the extracted fields (vendor, amount, date, invoice number).
+     4. **Action 3:** Store the extracted data in Dataverse for tracking and analytics.
+     5. **Action 4:** Add a **Teams → Post message in a channel** action for approval notifications.
 
-4. **Copilot Studio Configuration**
-   - In **Copilot Studio**, create a topic named **InvoiceAutomation**.  
-   - Add trigger phrases such as:  
-     - “Submit a new invoice for processing.”  
-     - “Validate invoice totals automatically.”  
-     - “Send this invoice for manager approval.”  
-   - Add an **Action Node** to call your Power Automate flow and pass document details.  
-   - Configure the response node to summarize extracted fields for user confirmation before submission.
+4. **Create Dataverse Table for Document Storage**
+   - In your environment, create a new **Dataverse** table called **FinanceDocuments**.
+   - Define columns for vendor information, amounts, dates, approval status, and document metadata.
+   - Configure proper data types and relationships for efficient querying and reporting.
 
-5. **Validation**
-   - Test the full automation by uploading an invoice PDF.  
-   - Verify that:  
-     - The invoice is parsed correctly by Document Intelligence.  
-     - Extracted fields appear in Dataverse/Excel.  
-     - Teams approval card is triggered.  
-     - Approval response updates the status accordingly.
+5. **Integrate the Flow into Your Copilot Agent**
+   - In **Copilot Studio → Topics**, create or open a topic named **DocumentProcessor**.
+   - Add **Trigger phrases** like:
+     - `Process my invoice`
+     - `Extract document data`
+     - `Submit for approval`
+   - Add a **Power Automate Action Node** to call the **ProcessFinanceDocument** flow.
+   - Map conversation variables to flow parameters and display extracted information for user confirmation.
 
-## Success Criteria
+6. **Testing the Agent**
+   - Use the **Test your copilot** panel to simulate conversations such as:
+     - `Process this invoice for vendor ABC Corp.`
+     - `Extract data from my uploaded receipt.`
+   - Verify that document processing works correctly and Teams notifications are sent for approval.
 
-- Document Intelligence extracts and returns correct invoice fields.  
-- Power Automate creates, routes, and updates approval workflows.  
-- Copilot Studio successfully interacts with the automated flow.  
-- Extracted data is stored in structured form (Excel/Dataverse).  
-- Teams notifications for approvals and updates function seamlessly.
+7. **Publishing the Agent**
+   - Navigate to **Settings → Channels**.
+   - Enable **Demo Web App** channel.
+   - Disable authentication for ease of access.
+   - Publish and test the agent in the browser.
+
+## Success Criteria  
+
+- The Copilot agent successfully triggers document processing flows within the Copilot Studio portal.
+- Document Intelligence correctly extracts key fields (vendor, amount, date, invoice number).
+- Teams notifications are sent automatically when documents require approval.
+- All extracted data is properly stored in Dataverse with relevant metadata.
 
 ## Additional Resources
 
-- [Azure AI Document Intelligence](https://learn.microsoft.com/en-us/azure/ai-services/document-intelligence/)  
-- [Power Automate Approvals Overview](https://learn.microsoft.com/en-us/power-automate/get-started)  
-- [Azure Function HTTP Triggers](https://learn.microsoft.com/en-us/azure/azure-functions/functions-bindings-http-webhook-trigger)  
-- [Integrate Copilot Studio with Power Automate](https://learn.microsoft.com/en-us/microsoft-copilot-studio/authoring-connectors)
+- [Build flows directly in Copilot Studio](https://learn.microsoft.com/en-us/microsoft-copilot-studio/power-automate-integration)
+- [Azure AI Document Intelligence Documentation](https://learn.microsoft.com/en-us/azure/ai-services/document-intelligence/)
+- [Send messages to Teams channels using Power Automate](https://learn.microsoft.com/en-us/connectors/teams/)
 
-## Conclusion
+## Conclusion  
 
-You have now enabled **automation and workflow integration** for the Finance Insight Copilot.  
-The assistant can automatically extract invoice fields, validate them, route approvals, and store data for analytics—laying the groundwork for an intelligent finance automation system that improves accuracy, speed, and governance.
+You have enhanced your Copilot's functionality by integrating Power Automate connectors directly within Copilot Studio to automate finance document processing and approval workflows. Your Copilot is now capable of handling real-world finance automation workflows, paving the way for adding AI-driven insights and analytics in the next stage.

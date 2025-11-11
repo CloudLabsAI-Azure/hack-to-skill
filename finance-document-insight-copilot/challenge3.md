@@ -1,96 +1,90 @@
-# Challenge 3: Enable Intelligence and Predictive Insights with Azure AI Foundry and Azure AI Search
-
+# Challenge 3: Add Intelligence with Azure AI Foundry & AI Search for Financial Document Analytics
+  
 ## Problem Statement
 
-Finance leaders need real-time insights from documents beyond extraction—understanding trends, anomalies, and financial performance patterns. Manual reviews can’t scale, and disconnected tools hinder proactive analysis.  
-In this challenge, you’ll bring **intelligence and reasoning** to the Finance Insight Copilot using **Azure AI Foundry**, **Azure AI Search**, and **Power BI** for visualization.
+Finance teams need to go beyond data extraction—they require intelligent insights from financial documents to drive strategic decisions and detect anomalies proactively. In this challenge, you'll connect Azure AI Foundry and Azure AI Search to create a unified intelligence layer that provides conversational analytics, spend trend detection, and executive summaries from financial document data.
 
 ## Goals
 
-- Connect **Azure AI Foundry** for document summarization, anomaly detection, and reasoning.  
-- Index finance document data using **Azure AI Search** for semantic retrieval.  
-- Generate AI-driven insights and visualize financial metrics in **Power BI** dashboards.
+- Deploy Azure AI Foundry models for advanced financial document analysis and trend detection.
+- Build an Azure Function that authenticates calls from Copilot and returns intelligent financial insights.
+- Use Azure AI Search to index and query financial document data for contextual responses.
+- Visualize financial metrics and anomalies via Azure Monitor dashboards.
 
-## Datasets
+## Datasets  
 
-- Use datasets from `C:\datasets\finance_records.csv` and `C:\datasets\invoice_samples.csv`.  
-- These files simulate historical transactions and extracted invoice details.  
-- You’ll index them for search and analysis using **Azure AI Search** and Foundry models.
+- Use the pre-provided dataset in `C:\datasets\finance_records.csv`.
+- This dataset contains historical financial transactions and extracted document data for analysis and insight generation.
 
-## Challenge Objectives
+## Challenge Objectives  
 
 1. **Azure AI Foundry Setup**
-   - In the **Azure Portal**, create a new **Azure AI Foundry project** named `FinanceInsights-Foundry`.
-   - Deploy the following models under **Language Models**:
-     - **GPT-4-turbo** for reasoning, summarization, and anomaly explanations.
-     - **Text-Embedding-3-small** for semantic vector generation.
-   - Test model endpoints in Foundry Studio to ensure they return valid summaries for financial text.
+   - In the Azure portal, create a new **Azure AI Foundry project** named `FinanceInsights-Foundry`.
+   - Under **Language Models**, deploy:
+     - **gpt-4o-mini** (for summarization and anomaly detection).
+     - **text-embedding-3-small** (for similarity search and document clustering).
+   - Note the endpoint and API key for later use.
 
-2. **Azure AI Search Indexing**
-   - Create an **Azure AI Search** resource using **Standard (S1)** tier.
-   - Use the **Import Data Wizard** to upload both `finance_records.csv` and `invoice_samples.csv`.
-   - Create an index named `finance-insights-index`.
-   - Configure fields:
-     - `InvoiceID`, `VendorName`, `Amount`, `Tax`, `Total`, `PaymentStatus`, `Date`, and `Comments`.
-     - Mark `VendorName` and `Comments` as **searchable** fields.
-   - Test the index using the **Search Explorer** to validate search results.
+2. **Azure AI Search Setup**
+   - Create a **Standard (S1)** tier **Azure AI Search** resource.
+   - Use the **Import Data Wizard** to index `C:\datasets\finance_records.csv`.
+   - Set index name as **finance-insights-index**.
+   - Configure searchable and filterable fields (vendor, amount, date, invoice number, payment status).
+   - Validate that documents are properly indexed.
 
-3. **Azure Function Intelligence Connector**
-   - Deploy an **Azure Function App** named `finance-ai-analyzer`.
-   - Implement logic to:
-     - Receive query input (e.g., “Summarize vendor spend this month”).
-     - Retrieve relevant documents from Azure AI Search.
-     - Send content to **Azure AI Foundry** for summarization and reasoning.
-     - Return insights, anomaly flags, and confidence scores.
-   - Configure secure authentication between Azure Function, Foundry, and AI Search.
-   - Test the endpoint using **Postman** or **cURL**.
+3. **Azure Function Connector**
+   - Create an **Azure Function** named `finance-insights-func` using HTTP trigger.
+   - Implement function endpoints:
+     - `POST /spending-analysis` → Query AI Search for transaction data, call Foundry for spend analysis, return insights.
+     - `POST /anomaly-detection` → Identify unusual transactions and generate alerts with explanations.
+     - `POST /vendor-summary` → Group spending by vendor and provide executive summaries with recommendations.
+   - Configure authentication between the Function and Azure services (AI Search, AI Foundry).
+   - Test each endpoint to ensure valid responses.
 
 4. **Copilot Studio Integration**
-   - In **Copilot Studio**, create a new topic named **FinanceInsightsAI**.
-   - Add trigger phrases such as:
-     - “Summarize vendor spend trends”
-     - “Show invoice anomalies this quarter”
-     - “What are the biggest unpaid invoices?”
-   - Add an **Action Node** that calls the Azure Function endpoint securely.
-   - Parse and present summarized insights or anomalies directly in chat.
-   - Test with queries like:
-     - “Summarize monthly spend per vendor.”
-     - “Highlight invoices with inconsistent tax entries.”
+   - In **Copilot Studio**, add a new topic named **FinancialInsights**.
+   - Define trigger phrases such as:
+     - `Analyze spending trends this quarter`
+     - `Show me vendor payment anomalies`
+     - `Summarize invoice processing metrics`
+   - Add an **Action Node** to call your Azure Function HTTP endpoint.
+   - Configure authentication and pass query parameters from the conversation.
+   - Parse the function response and display structured insights and recommendations.
 
-5. **Power BI Visualization**
-   - Connect **Power BI Desktop** to your **Dataverse** or output CSV dataset.
-   - Build dashboards for:
-     - Monthly and quarterly spend by vendor.
-     - Top anomalies or delayed payments.
-     - Aggregated tax and totals visualization.
-   - Publish the dashboard to **Power BI Service** and embed its URL in Copilot responses for quick access.
+5. **Telemetry and Observability**
+   - Enable **Application Insights** for your Azure Function App.
+   - Configure custom telemetry to track key metrics (query volume, response times, anomaly detection rates).
+   - Create an **Azure Monitor Dashboard** to visualize:
+     - Daily spending trends and vendor distributions.
+     - Detected anomalies and their resolution status.
+     - Average function response time and success rates.
+     - Copilot usage analytics by financial topic category.
+   - Set up alerts for critical thresholds (spending anomalies, performance issues).
 
-6. **Testing and Validation**
-   - Query the Copilot with:
-     - “Summarize total quarterly payments and list top 3 vendors.”
-     - “Detect any unusual invoice totals this quarter.”
-     - “Give me an overview of delayed payments.”
-   - Verify:
-     - AI Foundry model summaries are contextually relevant.
-     - Azure Function returns correct responses.
-     - Power BI dashboards update with live financial data.
+6. **Testing**
+   - Ask Copilot:
+     - `Summarize spending patterns for this fiscal quarter.`
+     - `What are the top 3 vendors by payment amount?`
+     - `Detect any unusual invoice amounts this month.`
+   - Verify that insights, summaries, and anomaly detection results are returned accurately.
 
-## Success Criteria
+7. **(Optional) Proactive Recommendations**
+   - Extend the Azure Function to return actionable recommendations based on spending patterns.
+   - Display recommendations as a formatted section in Copilot responses.
 
-- The Copilot provides summarized financial insights using AI Foundry and AI Search.  
-- Azure Function retrieves and processes data accurately with contextual recommendations.  
-- Power BI dashboard visualizes anomalies, totals, and spend distributions.  
-- Copilot responds to analytical and anomaly-detection queries effectively.
+## Success Criteria  
+
+- Copilot returns readable **spending analysis**, **anomaly detection**, and **vendor insights** based on financial document data.
+- Azure Function successfully authenticates and calls Foundry and AI Search.
+- Azure Monitor dashboard displays live financial metrics and anomaly alerts.
+- Validation passes successfully.
 
 ## Additional Resources
 
-- [Azure AI Foundry Overview](https://learn.microsoft.com/en-us/azure/ai-studio/)  
-- [Azure AI Search Documentation](https://learn.microsoft.com/en-us/azure/search/search-what-is-azure-search)  
-- [Azure Document Intelligence](https://learn.microsoft.com/en-us/azure/ai-services/document-intelligence/)  
-- [Power BI Desktop Overview](https://learn.microsoft.com/en-us/power-bi/fundamentals/desktop-getting-started)
+- [Azure AI Foundry (model deployments)](https://learn.microsoft.com/en-us/azure/ai-studio/)
+- [Use Azure OpenAI with your data (RAG quickstart)](https://learn.microsoft.com/en-us/azure/ai-services/openai/use-your-data-quickstart)
+- [Application Insights + Workbooks](https://learn.microsoft.com/en-us/azure/azure-monitor/visualize/workbooks-overview)
 
-## Conclusion
+## Conclusion  
 
-You’ve successfully built the intelligent layer of the **Finance Document Insight Copilot**.  
-Your assistant can now summarize key spend insights, detect anomalies, and deliver data-driven recommendations through a unified conversational interface.  
-This stage completes the full automation loop—combining **AI reasoning**, **data retrieval**, and **visual insights** for real-world financial intelligence.
+You've delivered an **intelligent Finance Document Insight Copilot**: knowledge-grounded Q&A, Power Automate operational flows, and AI-powered analytics for financial insights and anomaly detection. This completes the finance automation loop from document processing to action to strategic insights, demonstrating how Foundry and Copilot Studio can transform financial operations.

@@ -1,62 +1,63 @@
-## Getting Started with the Challenge
+# Getting Started with Finance Document Insight Copilot Challenge
 
-Welcome to the **Finance Document Insight Copilot** challenge!  
-We’ve set up everything you need to begin building your intelligent financial assistant. This page will help you navigate your environment, access your resources, and start your journey efficiently.
+Welcome to hack to skill: Finance Document Insight Copilot challenge! We've prepared a seamless environment for you to explore and learn. Let's begin by making the most of this experience.
 
 ### Accessing Your Challenge Environment
 
-Once you're ready to begin, your virtual machine and lab guide will be available directly within your web browser.  
-Simply log in to your CloudLabs environment to access your tools and workspace.
+Once you're ready to dive in, your virtual machine and challenge guide will be right at your fingertips within your web browser.
 
 ![](./media/gs1.png)
 
 ### Exploring Your Challenge Resources
 
-To review your environment details (like credentials, resource group names, or datasets), open the **Environment** tab.  
-You’ll find key resources such as Azure subscription details and your working directories there.
+To get a better understanding of your challenge resources and credentials, navigate to the Environment tab.
 
 ![](./media/gs-leave-2.png)
 
 ### Utilizing the Split Window Feature
 
-For convenience, you can open the challenge guide in a separate window by selecting the **Split Window** button from the top-right corner.  
-This allows you to follow instructions while simultaneously working in your Azure environment.
+For convenience, you can open the challenge guide in a separate window by selecting the Split Window button from the top-right corner.
 
 ![](./media/gs-leave-3.png)
 
 ### Managing Your Virtual Machine
 
-You can start, stop, or restart your virtual machine anytime from the **Resources** tab.  
-Use these controls to manage your lab runtime effectively and ensure optimal performance.
+Feel free to start, stop, or restart your virtual machine as needed from the Resources tab. Your experience is in your hands!
 
 ![](./media/gs-leave-4.png)
 
-## Let's Get Started with the Azure Portal
+## Let's Get Started with Microsoft Copilot Studio
 
-1. On your JumpVM desktop, double-click the **Azure Portal** shortcut in Microsoft Edge.  
+1. In the JumpVM, click on **Azure Portal** shortcut of Microsoft Edge browser which is created on desktop.
+
    ![](./media/gs-up1.png)
 
-2. The **Sign into Microsoft** page will appear. Enter the credentials provided under your **Environment Details**.  
-   - **Email/Username:** `<inject key="AzureAdUserEmail"></inject>`  
+2. On the **Sign into Microsoft** tab, you will see the login screen. Enter the provided email or username, and click **Next** to proceed.
+
+   - Email/Username: <inject key="AzureAdUserEmail"></inject>
+
      ![](./media/gs-lab3-g2.png)
 
-3. Enter your password and click **Sign in**.  
-   - **Password:** `<inject key="AzureAdUserPassword"></inject>`  
+3. Now, enter the following password and click on **Sign in**.
+
+   - Password: <inject key="AzureAdUserPassword"></inject>
+
      ![](./media/gs-lab3-g3.png)
 
-   > **Note:** If prompted with **Action Required**, select **Ask Later**.
-
-4. When you see **Stay signed in?**, select **No** to proceed.  
+     >**Note:** If you see the Action Required dialog box, then select Ask Later option.
+     
+4. If you see the pop-up **Stay Signed in?**, click No.  
    ![](./media/gs-4.png)
 
 ## Support Contact
 
-The **CloudLabs Support Team** is available 24/7, 365 days a year, via email and live chat.  
-We ensure seamless support for both learners and instructors throughout your experience.
+The CloudLabs support team is available 24/7, 365 days a year, via email and live chat to ensure seamless assistance at any time. We offer dedicated support channels tailored specifically for both learners and instructors, ensuring that all your needs are promptly and efficiently addressed.
 
-- **Email Support:** cloudlabs-support@spektrasystems.com  
-- **Live Chat:** [https://cloudlabs.ai/labs-support](https://cloudlabs.ai/labs-support)
+Learner Support Contacts:
 
-Now, click on the **Next** button at the lower right corner to continue to your first challenge.
+- Email Support: cloudlabs-support@spektrasystems.com
+- Live Chat Support: https://cloudlabs.ai/labs-support
+
+Now, click on the **Next** from lower right corner to move on next page.
 
 ## Happy Hacking!!
