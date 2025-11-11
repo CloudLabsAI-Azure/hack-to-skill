@@ -1,6 +1,6 @@
 ## Stage 2: Integration
 
-# Challenge 2: Integrate Power Automate Tools within Copilot Studio for IT Ticket Automation
+# Challenge: Integrate Power Automate Tools within Copilot Studio for IT Ticket Automation
   
 ## Problem Statement
 
