@@ -56,11 +56,11 @@ In this challenge, you'll create a foundational **Unified Enterprise Copilot** u
 
 ## Success Criteria
 
-✅ Functional Unified Enterprise Copilot created in Microsoft Copilot Studio  
-✅ Successfully integrated knowledge sources for HR, Finance, and IT departments  
-✅ Cross-domain queries properly routed to appropriate knowledge sources  
-✅ Graceful handling of scenarios where information cannot be found  
-✅ Copilot successfully deployed and accessible via Microsoft Teams  
+- Functional Unified Enterprise Copilot created in Microsoft Copilot Studio  
+- Successfully integrated knowledge sources for HR, Finance, and IT departments  
+- Cross-domain queries properly routed to appropriate knowledge sources  
+- Graceful handling of scenarios where information cannot be found  
+- Copilot successfully deployed and accessible via Microsoft Teams  
 
 ## Next Steps
 
