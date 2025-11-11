@@ -1,59 +1,50 @@
-# Build an HR Policy & Talent Insights Assistant using Microsoft Copilot Studio and Azure AI Foundry# Build an Intelligent IT Support Assistant using Microsoft Copilot Studio and Azure AI Foundry
+# Build an HR Policy & Talent Insights Assistant using Microsoft Copilot Studio and Azure AI Foundry
 
-Welcome to the Copilot Hackathon! Today, you'll explore the power of enterprise AI automation by building an HR Policy & Talent Insights Assistant using Microsoft Copilot Studio and Azure AI Foundry. Through this hands-on experience, you'll learn how to design a conversational AI solution that can answer employee policy queries, automate HR workflows, and provide intelligent insights from engagement data.Welcome to the Copilot Hackathon! Today, you'll explore the power of enterprise AI automation by building an Intelligent IT Support Assistant using Microsoft Copilot Studio and Azure AI Foundry. Through this hands-on experience, you’ll learn how to design a conversational AI solution that can understand user issues, create IT service tickets, and even provide intelligent recommendations using Azure AI.
+Welcome to the Copilot Hackathon! Today, you'll explore the power of enterprise AI automation by building an HR Policy & Talent Insights Assistant using Microsoft Copilot Studio and Azure AI Foundry. Through this hands-on experience, you'll learn how to design a conversational AI solution that can answer employee policy queries, automate HR workflows, and provide intelligent insights from engagement data.
 
-## Introduction## Introduction
+## Introduction
 
-Your mission is to create an AI-powered HR Policy Assistant that transforms how enterprises handle policy dissemination and talent insights. Leveraging Microsoft Copilot Studio, Azure AI Foundry, and Azure AI Search, you'll design a system that can automatically respond to HR policy questions, collect feedback, and surface sentiment insights from employee engagement data.Your mission is to create an AI-powered IT Support Assistant that transforms how enterprises handle support requests. Leveraging Microsoft Copilot Studio, Azure AI Foundry, and Azure AI Search, you’ll design a system that can automatically respond to common IT issues, generate and manage service tickets, and surface insights into recurring problems.
+Your mission is to create an AI-powered HR Policy Assistant that transforms how enterprises handle policy dissemination and talent insights. Leveraging Microsoft Copilot Studio, Azure AI Foundry, and Azure AI Search, you'll design a system that can automatically respond to HR policy questions, collect feedback, and surface sentiment insights from employee engagement data.
 
-This assistant will act as a virtual HR helpdesk integrating automation, reasoning, and observability to deliver faster, smarter, and more efficient employee experiences.This assistant will act as a virtual IT helpdesk integrating automation, reasoning, and observability to deliver faster, smarter, and more efficient support experiences for users and engineers alike.
+This assistant will act as a virtual HR helpdesk integrating automation, reasoning, and observability to deliver faster, smarter, and more efficient employee experiences.
 
-## Learning Objectives## Learning Objectives
+## Learning Objectives
 
-By participating in this hackathon, you will learn how to:By participating in this hackathon, you will learn how to:
+By participating in this hackathon, you will learn how to:
 
-- Create an AI-powered HR policy chatbot using Microsoft Copilot Studio.- Create an AI-powered HR policy chatbot using Microsoft Copilot Studio.
+- Create an AI-powered HR policy chatbot using Microsoft Copilot Studio.
+- Integrate Power Automate workflows for feedback collection and compliance reminders.
+- Deploy and connect Azure AI Foundry models for sentiment analysis and engagement insights.
+- Build retrieval-augmented experiences using Azure AI Search for policy and survey data.
+- Implement observability and telemetry with Azure Monitor to track HR metrics and employee engagement.
 
-- Integrate Power Automate workflows for feedback collection and compliance reminders.- Integrate Power Automate workflows for feedback collection and compliance reminders.
+## Hackathon Format: Challenge-Based
 
-- Deploy and connect Azure AI Foundry models for sentiment analysis and engagement insights.- Deploy and connect Azure AI Foundry models for sentiment analysis and engagement insights.
+This hackathon adopts a challenge-based learning format, providing a hands-on experience through three progressive stages that mirror a real-world enterprise AI implementation. Each challenge focuses on a key capability of the HR Policy & Talent Insights Assistant:
 
-- Build retrieval-augmented experiences using Azure AI Search for policy and survey data.- Build retrieval-augmented experiences using Azure AI Search for policy and survey data.
+- **Challenge 1: Foundation** - Build a basic Copilot agent that can answer HR policy FAQs using SharePoint as knowledge source.
+- **Challenge 2: Integration** - Integrate Power Automate workflows for feedback collection and compliance reminders.
+- **Challenge 3: Intelligence** - Connect Azure AI Foundry and AI Search to add sentiment analysis, trend detection, and HR metrics dashboards.
 
-- Implement observability and telemetry with Azure Monitor to track HR metrics and employee engagement.- Implement observability and telemetry with Azure Monitor to track HR metrics and employee engagement.
+Throughout each challenge, you'll:
 
-## Hackathon Format: Challenge-Based## Hackathon Format: Challenge-Based
+- Analyze the problem statement and business scenario.
+- Strategize and design a scalable technical solution.
+- Leverage your Azure environment to deploy, integrate, and test components.
 
-This hackathon adopts a challenge-based learning format, providing a hands-on experience through three progressive stages that mirror a real-world enterprise AI implementation. Each challenge focuses on a key capability of the HR Policy & Talent Insights Assistant:This hackathon adopts a challenge-based learning format, providing a hands-on experience through three progressive stages that mirror a real-world enterprise AI implementation. Each challenge focuses on a key capability of the HR Policy & Talent Insights Assistant:
+## Challenge Overview
 
-- **Challenge 1: Foundation** - Build a basic Copilot agent that can answer HR policy FAQs using knowledge sources.- **Challenge 1: Foundation** - Build a basic Copilot agent that can answer HR policy FAQs using knowledge sources.
+Your journey begins with setting up Microsoft Copilot Studio to create a conversational HR assistant capable of answering policy queries. You'll then integrate Power Automate to collect feedback and send compliance reminders. Finally, you'll enhance the assistant with Azure AI Foundry, Azure AI Search, and Azure Monitor to deliver sentiment analysis and insights on employee engagement.
 
-- **Challenge 2: Integration** - Integrate Power Automate workflows for feedback collection and compliance reminders.- **Challenge 2: Integration** - Integrate Power Automate workflows for feedback collection and compliance reminders.
+By the end of this hackathon, you'll have a fully functional AI-driven HR Policy Copilot capable of autonomous policy assistance, feedback automation, and intelligent talent insights.
 
-- **Challenge 3: Intelligence** - Connect Azure AI Foundry and AI Search to add sentiment analysis, trend detection, and HR metrics dashboards.- **Challenge 3: Intelligence** - Connect Azure AI Foundry and AI Search to add sentiment analysis, trend detection, and HR metrics dashboards.
+## Support Contact
 
-Throughout each challenge, you'll:Throughout each challenge, you’ll:
+The CloudLabs support team is available 24/7, 365 days a year, via email and live chat to ensure seamless assistance at any time. We offer dedicated support channels tailored specifically for both learners and instructors, ensuring that all your needs are promptly and efficiently addressed.Learner Support Contacts:
 
-- Analyze the problem statement and business scenario.- Analyze the problem statement and business scenario.
+- Email Support: cloudlabs-support@spektrasystems.com
+- Live Chat Support: https://cloudlabs.ai/labs-support
 
-- Strategize and design a scalable technical solution.- Strategize and design a scalable technical solution.
+Now, click on the **Next** from lower right corner to move on next page.
 
-- Leverage your Azure environment to deploy, integrate, and test components.- Leverage your Azure environment to deploy, integrate, and test components.
-
-## Challenge Overview## Challenge Overview
-
-Your journey begins with setting up Microsoft Copilot Studio to create a conversational HR assistant capable of answering policy queries. You'll then integrate Power Automate to collect feedback and send compliance reminders. Finally, you'll enhance the assistant with Azure AI Foundry, Azure AI Search, and Azure Monitor to deliver sentiment analysis and insights on employee engagement.Your journey begins with setting up Microsoft Copilot Studio to create a conversational HR assistant capable of answering policy queries. You'll then integrate Power Automate to collect feedback and send compliance reminders. Finally, you'll enhance the assistant with Azure AI Foundry, Azure AI Search, and Azure Monitor to deliver sentiment analysis and insights on employee engagement.
-
-By the end of this hackathon, you'll have a fully functional AI-driven HR Policy Copilot capable of autonomous policy assistance, feedback automation, and intelligent talent insights.By the end of this hackathon, you'll have a fully functional AI-driven HR Policy Copilot capable of autonomous policy assistance, feedback automation, and intelligent talent insights.
-
-## Support Contact## Support Contact
-
-The CloudLabs support team is available 24/7, 365 days a year, via email and live chat to ensure seamless assistance at any time. We offer dedicated support channels tailored specifically for both learners and instructors, ensuring that all your needs are promptly and efficiently addressed.Learner Support Contacts:The CloudLabs support team is available 24/7, 365 days a year, via email and live chat to ensure seamless assistance at any time. We offer dedicated support channels tailored specifically for both learners and instructors, ensuring that all your needs are promptly and efficiently addressed.Learner Support Contacts:
-
-- Email Support: cloudlabs-support@spektrasystems.com- Email Support: cloudlabs-support@spektrasystems.com
-
-- Live Chat Support: https://cloudlabs.ai/labs-support- Live Chat Support: https://cloudlabs.ai/labs-support
-
-Now, click on the **Next** from lower right corner to move on next page.Now, click on the **Next** from lower right corner to move on next page.
-
-## Happy Hacking!!## Happy Hacking!!
+## Happy Hacking!!

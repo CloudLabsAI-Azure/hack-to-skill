@@ -87,16 +87,18 @@ Policy answers alone aren't enough—HR also needs structured feedback, clarific
    - Map conversation variables to flow parameters.
    - Display the returned Ticket ID to the user in a confirmation message.
 
-7. **Test the Copilot Agent**
+6. **Testing the Agent**
    - Use the **Test your copilot** panel to simulate conversations such as:
      - `I want to give feedback on the remote work policy.`
      - `Raise a clarification on sick leave eligibility.`
    - Verify that the flow executes, a Freshdesk ticket is created, and a Teams notification is received.
    - Login to your Freshdesk portal and confirm the ticket appears with correct details.
 
-8. **Publish and Validate**
-   - Publish your updated agent via the **Demo Web App** channel.
-   - Confirm feedback submission and Teams notifications work seamlessly.
+7. **Publishing the Agent**
+   - Navigate to **Settings → Channels**.
+   - Enable **Demo Web App** channel.
+   - Disable authentication for ease of access.
+   - Publish and test the agent in the browser.
 
 ## Success Criteria  
 

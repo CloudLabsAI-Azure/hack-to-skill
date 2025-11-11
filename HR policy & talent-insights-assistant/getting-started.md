@@ -1,14 +1,14 @@
-# Getting Started with challenge
+# Getting Started with HR Policy & Talent Insights Assistant Challenge
 
-Welcome to hack to skill: HR Policy & Talent Insights Assistant challenge , We've prepared a seamless environment for you to explore and learn. Let's begin by making the most of this experience.
+Welcome to hack to skill: HR Policy & Talent Insights Assistant challenge! We've prepared a seamless environment for you to explore and learn. Let's begin by making the most of this experience.
 
-### Accessing Your challenge Environment
+### Accessing Your Challenge Environment
 
 Once you're ready to dive in, your virtual machine and challenge guide will be right at your fingertips within your web browser.
 
 ![](./media/gs1.png)
 
-### Exploring Your challenge Resources
+### Exploring Your Challenge Resources
 
 To get a better understanding of your challenge resources and credentials, navigate to the Environment tab.
 
@@ -16,7 +16,7 @@ To get a better understanding of your challenge resources and credentials, navig
 
 ### Utilizing the Split Window Feature
 
-For convenience, you can open the challenge guide in a separate window by selecting the Split Window button from the Top right corner
+For convenience, you can open the challenge guide in a separate window by selecting the Split Window button from the Top right corner.
 
 ![](./media/gs-leave-3.png)
 
@@ -26,7 +26,7 @@ Feel free to start, stop, or restart your virtual machine as needed from the Res
 
 ![](./media/gs-leave-4.png)
 
-## Let's Get Started with Power Apps Portal
+## Let's Get Started with Microsoft Copilot Studio
 
 1. In the JumpVM, click on **Azure Portal** shortcut of Microsoft Edge browser which is created on desktop.
 
@@ -52,7 +52,9 @@ Feel free to start, stop, or restart your virtual machine as needed from the Res
 
 ## Support Contact
 
-The CloudLabs support team is available 24/7, 365 days a year, via email and live chat to ensure seamless assistance at any time. We offer dedicated support channels tailored specifically for both learners and instructors, ensuring that all your needs are promptly and efficiently addressed.Learner Support Contacts:
+The CloudLabs support team is available 24/7, 365 days a year, via email and live chat to ensure seamless assistance at any time. We offer dedicated support channels tailored specifically for both learners and instructors, ensuring that all your needs are promptly and efficiently addressed.
+
+Learner Support Contacts:
 
 - Email Support: cloudlabs-support@spektrasystems.com
 - Live Chat Support: https://cloudlabs.ai/labs-support
