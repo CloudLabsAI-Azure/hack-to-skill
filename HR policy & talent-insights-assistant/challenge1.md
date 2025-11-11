@@ -12,7 +12,6 @@ HR departments manage thousands of policy documents, FAQs, and benefits informat
 
 ## Datasets / Prerequisites
 
-- **Do not upload any files from the lab VM.**
 - Use an existing SharePoint site in your tenant (e.g., **HR Hub**) or create a simple site with a few sample policy pages (Remote Work, Leave & Holidays, Benefits Overview).
 - Optional sample text is available locally at `C:\datasets\hr_policies_samples\` for **copy-paste only** (no file uploads).
 
@@ -74,5 +73,6 @@ HR departments manage thousands of policy documents, FAQs, and benefits informat
 - [Connect knowledge sources in Copilot Studio](https://learn.microsoft.com/en-us/microsoft-copilot-studio/knowledge)
   
 ## Conclusion  
+
 
 You have built the foundational layer of the HR Policy Copilot that can answer FAQs intelligently using Copilot Studio with SharePoint as the knowledge base. In the next challenge, you'll integrate Power Automate for feedback collection and compliance reminders.
