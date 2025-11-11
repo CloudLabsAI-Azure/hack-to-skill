@@ -61,11 +61,11 @@ Extend your Unified Enterprise Copilot to integrate with live systems using Powe
 
 ## Success Criteria
 
-✅ Dataverse tables configured with appropriate data and security settings  
-✅ Power Automate flows created for cross-departmental data access and workflows  
-✅ Copilot successfully integrated with live systems and real-time data  
-✅ Cross-department queries working with proper authentication and permissions  
-✅ Automated workflows tested and functioning across HR, Finance, and IT systems  
+- Dataverse tables configured with appropriate data and security settings  
+- Power Automate flows created for cross-departmental data access and workflows  
+- Copilot successfully integrated with live systems and real-time data  
+- Cross-department queries working with proper authentication and permissions  
+- Automated workflows tested and functioning across HR, Finance, and IT systems  
 
 ## Next Steps
 
