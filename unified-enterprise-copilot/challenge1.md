@@ -1,4 +1,6 @@
-# Challenge 1: Build a Cross-Domain FAQ Copilot with Microsoft Copilot Studio
+## Stage 1: Foundation
+
+# Challenge: Build a Cross-Domain FAQ Copilot with Microsoft Copilot Studio
 
 ## Problem Statement
 

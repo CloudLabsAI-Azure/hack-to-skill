@@ -1,4 +1,6 @@
-# Challenge 2: Integrate Power Automate Tools within Copilot Studio for HR Feedback and Compliance
+## Stage 2: Integration
+
+# Challenge: Integrate Power Automate Tools within Copilot Studio for HR Feedback and Compliance
   
 ## Problem Statement
 

@@ -1,4 +1,6 @@
-# Challenge 2: Integrate Power Automate Tools within Copilot Studio for Customer Feedback Automation
+## Stage 2: Integration
+
+# Challenge: Integrate Power Automate Tools within Copilot Studio for Customer Feedback Automation
   
 ## Problem Statement
 

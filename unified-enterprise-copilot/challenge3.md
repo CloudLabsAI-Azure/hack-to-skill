@@ -1,4 +1,6 @@
-# Challenge 3: Add Cross-Domain Intelligence with Azure AI Foundry and Azure AI Search
+## Stage 3: Intelligence
+
+# Challenge: Add Cross-Domain Intelligence with Azure AI Foundry and Azure AI Search
 
 ## Problem Statement
 

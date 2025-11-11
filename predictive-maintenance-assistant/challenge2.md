@@ -1,4 +1,6 @@
-# Challenge 2: Integrate Power Automate Tools within Copilot Studio for Predictive Maintenance Automation
+## Stage 2: Integration
+
+# Challenge: Integrate Power Automate Tools within Copilot Studio for Predictive Maintenance Automation
   
 ## Problem Statement
 

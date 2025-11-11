@@ -1,4 +1,6 @@
-# Challenge 1: Build a Foundational HR Policy Copilot Agent using Microsoft Copilot Studio
+## Stage 1: Foundation
+
+# Challenge: Build a Foundational HR Policy Copilot Agent using Microsoft Copilot Studio
   
 ## Problem Statement
 

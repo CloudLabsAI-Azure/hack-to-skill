@@ -1,4 +1,6 @@
-# Challenge 3: Add Talent Insights with Azure AI Foundry & AI Search (Sentiment, Summaries, Trends)
+## Stage 3: Intelligence
+
+# Challenge: Add Talent Insights with Azure AI Foundry & AI Search (Sentiment, Summaries, Trends)
   
 ## Problem Statement
 

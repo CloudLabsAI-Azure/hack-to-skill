@@ -1,4 +1,6 @@
-# Challenge 1: Build a Foundational Predictive Maintenance Copilot using Microsoft Copilot Studio
+## Stage 1: Foundation
+
+# Challenge: Build a Foundational Predictive Maintenance Copilot using Microsoft Copilot Studio
   
 ## Problem Statement
 

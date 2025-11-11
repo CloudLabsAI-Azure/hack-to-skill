@@ -1,4 +1,6 @@
-# Challenge 2: Integrate Enterprise Systems with Power Automate and Dataverse
+## Stage 2: Integration
+
+# Challenge: Integrate Enterprise Systems with Power Automate and Dataverse
 
 ## Problem Statement
 

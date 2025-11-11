@@ -1,4 +1,6 @@
-# Challenge 3: Add Intelligence with Azure AI Foundry & AI Search for Customer Sentiment Analytics
+## Stage 3: Intelligence
+
+# Challenge: Add Intelligence with Azure AI Foundry & AI Search for Customer Sentiment Analytics
   
 ## Problem Statement
 
