@@ -1,0 +1,30 @@
+[
+    {
+        "Name": "Finance – Intelligent Document Processing (IDP)",
+        "Language": "English",
+        "BaseURL": "https://github.com/CloudLabsAI-Azure/hack-to-skill",
+        "Files": [
+            {
+                "RawFilePath": "https://raw.githubusercontent.com/CloudLabsAI-Azure/hack-to-skill/refs/heads/main/intelligent-it-support-assistant/overview.md",
+                "Order": 1
+            },
+            {
+                "RawFilePath": "https://raw.githubusercontent.com/CloudLabsAI-Azure/hack-to-skill/refs/heads/main/intelligent-it-support-assistant/getting-started.md",
+                "Order": 2
+            },
+            {
+                "RawFilePath": "https://raw.githubusercontent.com/CloudLabsAI-Azure/hack-to-skill/refs/heads/main/intelligent-it-support-assistant/challenge1.md",
+                "Order": 3
+            },
+            {
+                "RawFilePath": "https://raw.githubusercontent.com/CloudLabsAI-Azure/hack-to-skill/refs/heads/main/intelligent-it-support-assistant/challenge2.md",
+                "Order": 4
+            },
+                        {
+                "RawFilePath": "https://raw.githubusercontent.com/CloudLabsAI-Azure/hack-to-skill/refs/heads/main/intelligent-it-support-assistant/challenge3.md"
+                "Order": 5
+            }
+        ]
+    }
+
+]
