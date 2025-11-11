@@ -1,95 +1,90 @@
-# Challenge 3: Add Intelligence to the Customer Feedback & Sentiment Intelligence Copilot using Azure AI Foundry and Azure AI Search
+# Challenge 3: Add Intelligence with Azure AI Foundry & AI Search for Customer Sentiment Analytics
   
 ## Problem Statement
 
-Customer experience teams must go beyond data collection — they need intelligence. In this challenge, you’ll connect Azure AI Foundry, Azure AI Language, and Azure AI Search to create a unified intelligence layer for feedback summarization, sentiment trends, and proactive alerts. The goal is to empower your Copilot to deliver actionable insights from multi-channel feedback automatically.
+Customer experience teams need to go beyond data collection and basic sentiment analysis—they require intelligent insights from multi-channel feedback to drive strategic decisions. In this challenge, you'll connect Azure AI Foundry and Azure AI Search to create a unified intelligence layer that provides conversational analytics, trend detection, and executive summaries from customer feedback data.
 
 ## Goals
 
-- Use Azure AI Foundry to analyze cross-channel feedback for sentiment and topic clustering.
-- Implement a retrieval-augmented insight system using Azure AI Search for intelligent querying.
-- Visualize sentiment and trend insights through Azure Monitor or Power BI dashboards.
+- Deploy Azure AI Foundry models for advanced sentiment analysis and trend detection.
+- Build an Azure Function that authenticates calls from Copilot and returns intelligent customer insights.
+- Use Azure AI Search to index and query customer feedback data for contextual responses.
+- Visualize customer sentiment metrics via Azure Monitor dashboards.
 
 ## Datasets  
 
-- Use the dataset in `C:\datasets\customer_feedback_history.csv` to simulate customer feedback records from multiple channels.
-- This dataset includes feedback text, channel source, sentiment labels, and timestamps — ideal for trend analysis and model evaluation.
+- Use the pre-provided dataset in `C:\datasets\customer_feedback_history.csv`.
+- This dataset contains historical customer feedback with sentiment labels and timestamps for trend analysis and insight generation.
 
 ## Challenge Objectives  
 
 1. **Azure AI Foundry Setup**
    - In the Azure portal, create a new **Azure AI Foundry project** named `CustomerSentiment-Foundry`.
    - Under **Language Models**, deploy:
-     - **GPT-4-turbo** (for summarization and reasoning).
-     - **Text-Embedding-3-small** (for similarity search and clustering).
-   - Create a **Custom Prompt Flow** that:
-     - Takes feedback text as input.
-     - Returns sentiment summary, topic clusters, and top recommendations.
-     - Outputs a structured JSON response.
+     - **gpt-4o-mini** (for summarization and trend analysis).
+     - **text-embedding-3-small** (for similarity search and clustering).
+   - Note the endpoint and API key for later use.
 
 2. **Azure AI Search Setup**
    - Create a **Standard (S1)** tier **Azure AI Search** resource.
-   - Use the **Import Data Wizard** to index the file `C:\datasets\customer_feedback_history.csv`.
-   - Set the index name as **customer-feedback-index**.
-   - Ensure fields like `FeedbackText`, `Channel`, and `SentimentScore` are searchable and filterable.
-   - Validate that all entries are indexed properly.
+   - Use the **Import Data Wizard** to index `C:\datasets\customer_feedback_history.csv`.
+   - Set index name as **customer-feedback-index**.
+   - Configure searchable and filterable fields (feedback text, sentiment, channel, timestamp).
+   - Validate that documents are properly indexed.
 
-3. **Azure Function Integration**
-   - Create an **Azure Function** named `feedback-intelligence-func` using an HTTP trigger.
-   - Implement logic to:
-     - Accept feedback queries from Copilot.
-     - Query Azure AI Search for matching records.
-     - Call the **Azure AI Foundry endpoint** for analysis and summarization.
-     - Return structured responses such as:
-       ```json
-       {
-         "TopThemes": ["Delivery delays", "Support response time"],
-         "OverallSentiment": "Mostly positive (78%)",
-         "RecommendedActions": ["Improve SLA reminders", "Add proactive follow-ups"]
-       }
-       ```
-   - Enable Application Insights for observability and performance tracking.
+3. **Azure Function Connector**
+   - Create an **Azure Function** named `customer-insights-func` using HTTP trigger.
+   - Implement function endpoints:
+     - `POST /sentiment-trends` → Query AI Search for feedback data, call Foundry for trend analysis, return insights.
+     - `POST /feedback-summary` → Group feedback by categories, call Foundry for executive summary with recommendations.
+     - `POST /sentiment-alerts` → Detect sentiment anomalies and generate proactive alerts.
+   - Configure authentication between the Function and Azure services (AI Search, AI Foundry).
+   - Test each endpoint to ensure valid responses.
 
 4. **Copilot Studio Integration**
-   - In **Copilot Studio**, add a new topic called **FeedbackInsights**.
-   - Add trigger phrases like:
-     - `Summarize this month's customer sentiment.`
-     - `What topics are trending in support feedback?`
-     - `Highlight negative themes from email feedback.`
-   - Create an **Action Node** that calls your Azure Function endpoint.
-   - Pass parameters such as date range, sentiment filter, and channel.
-   - Parse and present the structured response in a readable conversational format.
+   - In **Copilot Studio**, add a new topic named **CustomerInsights**.
+   - Define trigger phrases such as:
+     - `Summarize customer sentiment this month`
+     - `What are trending customer concerns?`
+     - `Show me feedback analysis for support issues`
+   - Add an **Action Node** to call your Azure Function HTTP endpoint.
+   - Configure authentication and pass query parameters from the conversation.
+   - Parse the function response and display structured insights.
 
-5. **Sentiment Alerts & Dashboards**
-   - Extend **Power Automate** to:
-     - Monitor negative sentiment spikes via Azure Function outputs.
-     - Trigger Teams notifications to CX leads when thresholds exceed defined limits.
-   - Connect **Azure Monitor** or **Power BI** to visualize:
-     - Sentiment trends by channel (Email, Chat, Social).
-     - Top topics influencing NPS or CSAT.
-     - Volume and trend graphs with average sentiment score.
-   - Optionally, add alert rules for anomalies (e.g., “>20% negative feedback in 24 hrs”).
+5. **Telemetry and Observability**
+   - Enable **Application Insights** for your Azure Function App.
+   - Configure custom telemetry to track key metrics (query volume, response times, sentiment distribution).
+   - Create an **Azure Monitor Dashboard** to visualize:
+     - Daily sentiment trends across channels.
+     - Top customer concerns and feedback themes.
+     - Average function response time and success rates.
+     - Copilot usage analytics by topic category.
+   - Set up alerts for critical thresholds (negative sentiment spikes, performance issues).
 
 6. **Testing**
-   - Test with queries such as:
-     - `Summarize top negative topics this month.`
-     - `What’s trending in customer chat feedback?`
-     - `Show me sentiment changes over the last 7 days.`
+   - Ask Copilot:
+     - `Summarize customer sentiment trends for this quarter.`
+     - `What are the top concerns from email feedback?`
+     - `Show me sentiment analysis for social media mentions.`
+   - Verify that insights, summaries, and trend analysis are returned accurately.
+
+7. **(Optional) Proactive Recommendations**
+   - Extend the Azure Function to return actionable recommendations based on sentiment patterns.
+   - Display recommendations as a formatted section in Copilot responses.
 
 ## Success Criteria  
 
-- The Copilot returns summarized sentiment insights using Azure AI Foundry and Azure AI Search.
-- Azure Function successfully orchestrates data retrieval and model execution.
-- Alerts are triggered automatically when sentiment thresholds are breached.
-- Dashboards display dynamic sentiment and topic trends.
+- Copilot returns readable **sentiment trends**, **summaries**, and **insights** based on customer feedback data.
+- Azure Function successfully authenticates and calls Foundry and AI Search.
+- Azure Monitor dashboard displays live customer sentiment metrics.
+- Validation passes successfully.
 
 ## Additional Resources
 
-- [Azure AI Foundry Overview](https://learn.microsoft.com/en-us/azure/ai-studio/)
-- [Azure AI Language Documentation](https://learn.microsoft.com/en-us/azure/ai-services/language-service/overview)
-- [Use your data with Azure OpenAI](https://learn.microsoft.com/en-us/azure/ai-services/openai/use-your-data-quickstart)
-- [Azure Monitor Dashboards](https://learn.microsoft.com/en-us/azure/azure-monitor/visualize/workbooks-overview)
+- [Azure AI Foundry (model deployments)](https://learn.microsoft.com/en-us/azure/ai-studio/)
+- [Use Azure OpenAI with your data (RAG quickstart)](https://learn.microsoft.com/en-us/azure/ai-services/openai/use-your-data-quickstart)
+- [Application Insights + Workbooks](https://learn.microsoft.com/en-us/azure/azure-monitor/visualize/workbooks-overview)
 
 ## Conclusion  
 
-You’ve built an intelligent **Customer Feedback & Sentiment Intelligence Copilot** that transforms raw feedback into actionable insights. By combining conversational AI, sentiment analysis, and automated alerting, your Copilot empowers CX teams to act faster, improve service quality, and continuously enhance customer satisfaction.
+You've delivered an **intelligent Customer Feedback & Sentiment Intelligence Copilot**: knowledge-grounded Q&A, Power Automate operational flows, and AI-powered analytics for sentiment trends and customer insights. This completes the customer experience automation loop from feedback collection to action to strategic insights, demonstrating how Foundry and Copilot Studio can transform CX operations.

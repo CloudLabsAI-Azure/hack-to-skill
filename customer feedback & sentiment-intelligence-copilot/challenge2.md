@@ -1,100 +1,82 @@
-# Challenge 2: Integrate Multi-Channel Feedback Analysis and Automation using Power Automate and Logic Apps
+# Challenge 2: Integrate Power Automate Tools within Copilot Studio for Customer Feedback Automation
   
 ## Problem Statement
 
-Collecting customer feedback is only the first step — organizations need seamless integration and automation to extract value from it. In this challenge, you’ll integrate Power Automate and Logic Apps with Copilot Studio to ingest multi-channel feedback, run sentiment analysis with Azure AI Language Services, and automate alerts and data storage in Dataverse.
+While your foundational chatbot can collect feedback and answer FAQs, enterprise customer experience teams also require automated workflows to process multi-channel feedback efficiently. In this challenge, you will extend your Copilot agent to include sentiment analysis and alerting automation directly within the Copilot Studio portal using Power Automate connectors and Azure AI Language Services.
 
 ## Goals
 
-- Integrate feedback collection from multiple sources using Logic Apps and Power Automate.
-- Apply sentiment analysis using Azure AI Language Services.
-- Automate feedback logging, escalation, and sentiment alerts within Dataverse and Teams.
+- Automate customer feedback processing and sentiment analysis through Copilot Studio's integrated Power Automate tools.
+- Enable Microsoft Teams based notifications for CX teams when negative sentiment is detected.
+- Store and manage all feedback data within Dataverse in a structured format.
 
 ## Datasets  
 
-- Use the sample dataset located in `C:\datasets\customer_feedback_sample.csv` to simulate feedback data collected from multiple channels (Email, Web Form, Survey).  
-- This dataset will help you verify ingestion and sentiment analysis flows.
+- Use the pre-provided dataset in `C:\datasets\customer_feedback_sample.csv`.
+- This dataset contains sample feedback templates and metadata to simulate multi-channel customer feedback processing.
 
 ## Challenge Objectives  
 
-1. **Power Automate Setup**
-   - Open **Power Automate** from Microsoft 365 Apps.
-   - Create a new **Cloud Flow** named `ProcessCustomerFeedbackFlow`.
-   - Trigger: **Manually trigger a flow** (for testing) or **When a new email arrives** (for production simulation).
-   - Add parameters for:
-     - `CustomerName`
-     - `Channel`
-     - `FeedbackText`
-     - `DateReceived`
+1. **Set Up Azure AI Language Service**
+   - Navigate to Azure portal and create a **Language Service** resource.
+   - Complete the setup wizard and note down your **endpoint** and **API key**.
+   - Enable **Sentiment Analysis** and **Key Phrase Extraction** features.
+   - Familiarize yourself with the sentiment analysis API structure and response format.
 
-2. **Dataverse Table Creation**
-   - In your environment, create a new **Dataverse** table called `CustomerFeedback`.
-   - Define the following columns:
-     - `CustomerName` (Text)
-     - `Channel` (Choice)
-     - `FeedbackText` (Multiline Text)
-     - `Sentiment` (Choice: Positive, Neutral, Negative)
-     - `SentimentScore` (Decimal)
-     - `DateReceived` (DateTime)
-   - Save and publish the table schema.
+2. **Open Copilot Studio and Access Power Automate Tools**
+   - Launch **Microsoft Copilot Studio** from your Microsoft 365 portal.
+   - Open the **CustomerFeedback-Foundation** agent you created in the previous challenge.
+   - From the left navigation panel, go to **Tools → Power Automate** to view available connectors and builder options.
 
-3. **Azure AI Language Service Integration**
-   - In the Azure portal, create a **Language Service** resource named `CustomerSentimentLangService`.
-   - Under **Features**, enable **Sentiment Analysis** and **Key Phrase Extraction**.
-   - Copy the **endpoint** and **API key**.
-   - In your Power Automate flow:
-     - Add an **HTTP action** to call the Language API.
-     - Use the endpoint `/text/analytics/v3.1/sentiment`.
-     - Pass `FeedbackText` as the input body.
-     - Parse the response to extract `Sentiment` and `ConfidenceScore`.
+3. **Create a Power Automate Flow within Copilot Studio**
+   - In Copilot Studio, navigate to **Tools → Power Automate → Create Flow**.
+   - Name the flow **ProcessCustomerFeedback**.
+   - Add the following steps:
+     1. **Trigger:** Use **When a Copilot topic runs this flow**.
+     2. **Action 1:** Add an **HTTP** action to call Azure AI Language Service for sentiment analysis.
+     3. **Action 2:** Parse the sentiment response and extract sentiment score and classification.
+     4. **Action 3:** Store the feedback and sentiment data in Dataverse.
+     5. **Action 4:** Add a **Teams → Post message in a channel** action for negative sentiment alerts.
 
-4. **Logic App Integration (Optional Enhancement)**
-   - In the Azure portal, create a **Logic App** named `IngestCustomerFeedback`.
-   - Add connectors for:
-     - **Outlook / Exchange** (read new emails with subject “Customer Feedback”)
-     - **Microsoft Forms / Survey** (for survey submissions)
-     - **Social Media Connector** (for public mentions)
-   - Use a **Data Operations** step to clean and merge all incoming feedback into a consistent schema.
-   - Call Power Automate Flow (`ProcessCustomerFeedbackFlow`) via an HTTP trigger to send merged feedback data for processing.
+4. **Create Dataverse Table for Feedback Storage**
+   - In your environment, create a new **Dataverse** table called **CustomerFeedback**.
+   - Define columns for customer information, feedback text, sentiment analysis results, and timestamps.
+   - Configure proper data types and relationships for efficient querying.
 
-5. **Feedback Automation and Alerts**
-   - Back in **Power Automate**, after the sentiment is computed:
-     - Add a step to **Insert a row** into the Dataverse `CustomerFeedback` table.
-     - If sentiment = **Negative** and score < 0.4:
-       - Add a **Condition** branch to send a **Teams notification** to the CX Manager channel.
-       - Include feedback details, channel, and timestamp.
-   - Test with multiple entries and validate that alerts fire correctly.
+5. **Integrate the Flow into Your Copilot Agent**
+   - In **Copilot Studio → Topics**, create or open a topic named **FeedbackProcessor**.
+   - Add **Trigger phrases** like:
+     - `Process my feedback`
+     - `Analyze customer sentiment`
+     - `Submit feedback for review`
+   - Add a **Power Automate Action Node** to call the **ProcessCustomerFeedback** flow.
+   - Map conversation variables to flow parameters and display confirmation messages.
 
-6. **Copilot Studio Integration**
-   - In **Copilot Studio**, open your existing agent and navigate to **Actions**.
-   - Add the Power Automate flow `ProcessCustomerFeedbackFlow` as a callable action.
-   - Create a new topic named **FeedbackCollector** with trigger phrases such as:
-     - `Submit my feedback`
-     - `I want to share my experience`
-     - `Report an issue about the service`
-   - Configure fields for `CustomerName`, `Channel`, and `FeedbackText`.
-   - Call the Power Automate flow action and show confirmation messages in chat.
+6. **Testing the Agent**
+   - Use the **Test your copilot** panel to simulate conversations such as:
+     - `I had a terrible experience with your service today.`
+     - `Process my feedback about the excellent support I received.`
+   - Verify that sentiment analysis works correctly and Teams notifications are sent for negative feedback.
 
-7. **Testing**
-   - Interact with Copilot using sample phrases like:
-     - `I want to give feedback about delayed responses.`
-     - `Submit a new feedback from survey data.`
-   - Confirm that sentiment analysis, alerts, and Dataverse entries work end-to-end.
+7. **Publishing the Agent**
+   - Navigate to **Settings → Channels**.
+   - Enable **Demo Web App** channel.
+   - Disable authentication for ease of access.
+   - Publish and test the agent in the browser.
 
 ## Success Criteria  
 
-- Copilot successfully triggers Power Automate and Logic App workflows.
-- Sentiment is analyzed correctly via Azure AI Language Service.
-- Negative feedback automatically triggers alerts in Teams.
-- All feedback records are logged in Dataverse with accurate sentiment labels.
+- The Copilot agent successfully triggers feedback processing flows within the Copilot Studio portal.
+- Sentiment analysis correctly identifies positive, neutral, and negative feedback.
+- Teams notifications are sent automatically when negative sentiment is detected.
+- All feedback data is properly stored in Dataverse with sentiment labels.
 
 ## Additional Resources
 
-- [Azure AI Language Documentation](https://learn.microsoft.com/en-us/azure/ai-services/language-service/overview)
-- [Integrate Power Automate with Copilot Studio](https://learn.microsoft.com/en-us/microsoft-copilot-studio/power-automate-integration)
-- [Logic Apps Connectors Overview](https://learn.microsoft.com/en-us/azure/connectors/apis-list)
-- [Dataverse Tables Quickstart](https://learn.microsoft.com/en-us/power-apps/maker/data-platform/data-platform-tables-overview)
+- [Build flows directly in Copilot Studio](https://learn.microsoft.com/en-us/microsoft-copilot-studio/power-automate-integration)
+- [Azure AI Language Service Documentation](https://learn.microsoft.com/en-us/azure/ai-services/language-service/overview)
+- [Send messages to Teams channels using Power Automate](https://learn.microsoft.com/en-us/connectors/teams/)
 
 ## Conclusion  
 
-You have successfully integrated **Power Automate**, **Logic Apps**, and **Azure AI Language Service** to automate sentiment-based workflows. Your Copilot can now collect feedback, analyze tone and sentiment, and notify teams for quick action — creating a proactive, data-driven customer experience ecosystem.
+You have enhanced your Copilot's functionality by integrating Power Automate connectors directly within Copilot Studio to automate customer feedback processing and sentiment analysis. Your Copilot is now capable of handling real-world CX automation workflows, paving the way for adding AI-driven insights and trend analysis in the next stage.

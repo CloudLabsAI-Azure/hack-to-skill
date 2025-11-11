@@ -1,14 +1,14 @@
-# Getting Started with challenge
+# Getting Started with Customer Feedback & Sentiment Intelligence Copilot Challenge
 
-Welcome to hack to skill: **Customer Feedback & Sentiment Intelligence Copilot** challenge! We've prepared a seamless environment for you to explore and learn. Let's begin by making the most of this experience.
+Welcome to hack to skill: Customer Feedback & Sentiment Intelligence Copilot challenge! We've prepared a seamless environment for you to explore and learn. Let's begin by making the most of this experience.
 
-### Accessing Your challenge Environment
+### Accessing Your Challenge Environment
 
 Once you're ready to dive in, your virtual machine and challenge guide will be right at your fingertips within your web browser.
 
 ![](./media/gs1.png)
 
-### Exploring Your challenge Resources
+### Exploring Your Challenge Resources
 
 To get a better understanding of your challenge resources and credentials, navigate to the Environment tab.
 
@@ -26,7 +26,7 @@ Feel free to start, stop, or restart your virtual machine as needed from the Res
 
 ![](./media/gs-leave-4.png)
 
-## Let's Get Started with Azure Portal
+## Let's Get Started with Microsoft Copilot Studio
 
 1. In the JumpVM, click on the **Azure Portal** shortcut in Microsoft Edge (already created on your desktop).
 
@@ -50,15 +50,6 @@ Feel free to start, stop, or restart your virtual machine as needed from the Res
 
    ![](./media/gs-4.png)
 
-## Support Contact
-
-The CloudLabs support team is available 24/7, 365 days a year, via email and live chat to ensure seamless assistance at any time. We offer dedicated support channels tailored specifically for both learners and instructors, ensuring that all your needs are promptly and efficiently addressed.  
-
-**Learner Support Contacts:**
-
-- **Email Support:** cloudlabs-support@spektrasystems.com  
-- **Live Chat Support:** [https://cloudlabs.ai/labs-support](https://cloudlabs.ai/labs-support)
-
-Now, click on the **Next** from the lower-right corner to move on to the next page.
+Now, click on the **Next** from lower right corner to move on next page.
 
 ## Happy Hacking!!
