@@ -1,6 +1,6 @@
 # Getting Started with challenge
 
-Welcome to hack to skill: Build an HR Policy & Talent Insights Assistant using Microsoft Copilot Studio and Azure AI Foundry challenge , We've prepared a seamless environment for you to explore and learn. Let's begin by making the most of this experience.
+Welcome to hack to skill: HR Policy & Talent Insights Assistant challenge , We've prepared a seamless environment for you to explore and learn. Let's begin by making the most of this experience.
 
 ### Accessing Your challenge Environment
 
