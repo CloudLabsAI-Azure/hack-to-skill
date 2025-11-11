@@ -5,23 +5,23 @@
         "BaseURL": "https://github.com/CloudLabsAI-Azure/hack-to-skill",
         "Files": [
             {
-                "RawFilePath": "https://raw.githubusercontent.com/CloudLabsAI-Azure/hack-to-skill/refs/heads/main/finance-document-insight-copilot/overview.md",
+                "RawFilePath": "https://raw.githubusercontent.com/CloudLabsAI-Azure/hack-to-skill/refs/heads/main/customer-feedback-sentiment-intelligence-copilot/overview.md",
                 "Order": 1
             },
             {
-                "RawFilePath": "https://raw.githubusercontent.com/CloudLabsAI-Azure/hack-to-skill/refs/heads/main/finance-document-insight-copilot/getting-started.md",
+                "RawFilePath": "https://raw.githubusercontent.com/CloudLabsAI-Azure/hack-to-skill/refs/heads/main/customer-feedback-sentiment-intelligence-copilot/getting-started.md",
                 "Order": 2
             },
             {
-                "RawFilePath": "https://raw.githubusercontent.com/CloudLabsAI-Azure/hack-to-skill/refs/heads/main/finance-document-insight-copilot/challenge1.md",
+                "RawFilePath": "https://raw.githubusercontent.com/CloudLabsAI-Azure/hack-to-skill/refs/heads/main/customer-feedback-sentiment-intelligence-copilot/challenge1.md",
                 "Order": 3
             },
             {
-                "RawFilePath": "https://raw.githubusercontent.com/CloudLabsAI-Azure/hack-to-skill/refs/heads/main/finance-document-insight-copilot/challenge2.md",
+                "RawFilePath": "https://raw.githubusercontent.com/CloudLabsAI-Azure/hack-to-skill/refs/heads/main/customer-feedback-sentiment-intelligence-copilot/challenge2.md",
                 "Order": 4
             },
                         {
-                "RawFilePath": "https://raw.githubusercontent.com/CloudLabsAI-Azure/hack-to-skill/refs/heads/main/finance-document-insight-copilot/challenge3.md",
+                "RawFilePath": "https://raw.githubusercontent.com/CloudLabsAI-Azure/hack-to-skill/refs/heads/main/customer-feedback-sentiment-intelligence-copilot/challenge3.md",
                 "Order": 5
             }
         ]
