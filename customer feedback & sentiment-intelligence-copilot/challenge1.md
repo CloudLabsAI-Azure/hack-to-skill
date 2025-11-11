@@ -1,83 +1,72 @@
-# Challenge 1: Build a Teams-ready Customer Feedback Copilot with Copilot Studio (Foundation)
-
+# Challenge 1: Build a Foundational Customer Feedback Copilot Agent using Microsoft Copilot Studio
+  
 ## Problem Statement
 
-CX teams need a quick, consistent way to capture structured customer feedback and answer common FAQs directly where users already work—Teams. In this foundation stage, you’ll build a Copilot Studio chatbot that collects feedback (name, channel, rating, comment) and can respond to basic FAQs, all inside Teams.
+CX teams collect vast volumes of unstructured feedback from emails, chat transcripts, and social media posts without the capacity to process and act on them quickly. Manual review delays issue detection and insights, while disconnected tools prevent sentiment tracking across channels. This challenge focuses on building the foundation of an AI-powered Customer Feedback Assistant capable of collecting structured feedback and responding with helpful information.
 
 ## Goals
 
-- Create a Copilot Studio agent to capture **structured customer feedback**.
-- Add a simple **FAQ** experience for common support questions.
-- Publish the Copilot to **Teams** (or Demo Web App) for easy access and testing.
+- Create a Microsoft Copilot Studio agent capable of collecting structured customer feedback.
+- Add a simple FAQ experience for common customer support questions.
+- Publish the Copilot as a web app and test sample queries.
 
 ## Datasets
 
-- No uploads are required in this challenge.  
-- (Optional) You may copy example FAQ text from `C:\datasets\customer_faq_samples.txt` into your topic messages to seed basic answers.
+- No uploads are required in this challenge.
+- Optional sample FAQ text is available locally at `C:\datasets\customer_faq_samples.txt` for reference only.
 
-## Challenge Objectives
+## Challenge Objectives  
 
-1. **Create the Copilot Agent**
-   - Open **Microsoft Copilot Studio**.
-   - Click **+ New agent** and name it **CustomerFeedback-Foundation** (Category: Customer Experience).
-   - Keep the default language/region and create the agent.
+1. **Copilot Studio Access and Environment Setup**
+   - Navigate to Power Platform portal and create a `developer` environment.
+   - Login to Microsoft Copilot Studio portal and select the developer environment which is created earlier.
 
-2. **Design the Feedback Form (Topic)**
-   - Create a new **Topic** named **Collect-Feedback**.
-   - Add trigger phrases:
+2. **Create a New Copilot Agent**
+   - Click **+ New Agent**.
+   - Name your agent: **CustomerFeedback-Foundation**.
+   - Choose the Customer Experience category and proceed with default language and region.
+
+3. **Topic Creation for Feedback Collection**
+   - Add a new topic named **CollectFeedback**.
+   - Set trigger phrases such as:
      - `Submit feedback`
      - `Share my experience`
      - `I want to report an issue`
-   - Add **Question** nodes to collect:
-     - `CustomerName` (Short text)
-     - `Channel` (Choices: Email, Web, Chat, Social)
-     - `Category` (Choices: Product, Support, Delivery, Billing, Other)
-     - `Rating` (Number 1–5)
-     - `Comment` (Long text)
-   - After capturing values, add a **Message** node summarizing the submission back to the user for confirmation.
+   - Add question nodes to collect customer information and feedback details.
+   - Include confirmation and thank-you messaging with reference ID generation.
 
-3. **Add a Confirmation & Thank-you Flow**
-   - Add a **Yes/No** confirmation step:
-     - On **Yes** → Show a “Thank you” message and provide a reference ID (use a simple generated string like `FBK-<random 5 digits>` via a variable).
-     - On **No** → Loop back to allow the user to edit fields (at least `Rating` and `Comment`).
-
-4. **Create a Basic FAQ Topic**
-   - New **Topic**: **Customer-FAQ** with trigger phrases:
-     - `FAQs`
+4. **FAQ Topic Creation**
+   - Add a new topic named **CustomerFAQs**.
+   - Set trigger phrases such as:
      - `How do I contact support?`
      - `Where can I track my order?`
-   - Add a **Message** node (or **Generative Answers** if you later connect a knowledge source) with 5–8 concise Q&A entries (contact info, hours, refunds basics, ETA/Tracking steps, escalation path).
+     - `What are your business hours?`
+   - Add message nodes for common customer service responses.
 
-5. **Agent Settings & Variables**
-   - In **Variables**, create:
-     - `FeedbackId` (Text)
-     - `SubmissionTime` (DateTime)
-   - Set `SubmissionTime` when the form is confirmed; compose `FeedbackId` (e.g., `FBK-${randomNumber()}` via an expression or static placeholder).
+5. **Testing the Agent**
+   - Use the built-in **Test Chat** panel in Copilot Studio.
+   - Test queries such as:
+     - `I want to submit feedback about my recent experience.`
+     - `How can I contact customer support?`
 
-6. **Publish to Teams (or Demo Web App)**
-   - Navigate to **Channels**:
-     - Preferred: **Microsoft Teams** → enable and follow prompts to add to a team or chat.
-     - Alternative: **Demo Web App** → enable and copy the URL.
-   - (Lab convenience) If using Demo Web App, **disable authentication** for testing.
+6. **Publishing the Agent**
+   - Navigate to **Settings → Channels**.
+   - Enable **Demo Web App** channel.
+   - Disable authentication for ease of access.
+   - Publish and test the agent in the browser.
+ 
+## Success Criteria  
 
-7. **Test End-to-End**
-   - In Teams or Demo Web App, try:
-     - `Submit feedback`
-     - Provide details for all fields and confirm.
-     - Ask `FAQs` and verify the assistant replies with your Q&A content.
-
-## Success Criteria
-
-- Users can **submit structured feedback** (name, channel, category, rating, comment) and receive a confirmation message with a feedback ID.
-- The **FAQ topic** responds correctly to common questions.
-- The Copilot is **accessible in Teams** (or Demo Web App) and works end-to-end.
+- The agent successfully collects structured customer feedback with confirmation messaging.
+- The FAQ topic responds correctly to common customer questions.
+- The web app is accessible without authentication.
+- Validation passes successfully.
 
 ## Additional Resources
 
-- Microsoft Copilot Studio Documentation  
-- Topics, Variables, and Publishing Channels in Copilot Studio  
-- Authoring tips for question/choice nodes and branching
+- [Microsoft Copilot Studio Documentation](https://learn.microsoft.com/en-us/microsoft-copilot-studio/)
+- [Topics and Variables in Copilot Studio](https://learn.microsoft.com/en-us/microsoft-copilot-studio/authoring-create-edit-topics)
+  
+## Conclusion  
 
-## Conclusion
-
-You’ve built the foundation of the **Customer Feedback & Sentiment Intelligence Copilot**: a Teams-ready assistant that collects structured feedback and answers FAQs. In the next challenge, you’ll integrate **Power Automate** and **Logic Apps** to ingest multi-channel feedback and apply **Azure AI Language** sentiment analysis with Dataverse storage and alerts.
+You have built the foundational layer of the Customer Feedback & Sentiment Intelligence Copilot that can collect feedback and answer FAQs intelligently using Copilot Studio. In the next challenge, you'll integrate Power Automate and Logic Apps for multi-channel feedback processing and sentiment analysis.
