@@ -35,8 +35,8 @@ Enterprises face high volumes of repetitive IT support requests such as password
    - Add message nodes for sample responses.
 
 4. **Knowledge Source Integration**
-   - From the Knowledge section, choose Add data source.
-   - Upload or connect the **Excel file from `C:\datasets\it_faq_data.xlsx`**.
+   - From the **Knowledge** section, choose **Add data source**.
+   - Upload or connect the Excel file from `C:\datasets\it_faq_data.xlsx`.
    - Select relevant columns as the question and answer fields.
 
 5. **Testing the Agent**
@@ -57,10 +57,11 @@ Enterprises face high volumes of repetitive IT support requests such as password
 - The web app is accessible without authentication.
 - Validation passes successfully.
 
-## Additional Resources:
+## Additional Resources
+
 - [Microsoft Copilot Studio Documentation](https://learn.microsoft.com/en-us/microsoft-copilot-studio/)
 - [Connect knowledge sources in Copilot Studio](https://learn.microsoft.com/en-us/microsoft-copilot-studio/knowledge)
   
 ## Conclusion  
 
-You have built the foundational layer of the IT Support Assistant Copilot that can answer FAQs intelligently using Copilot Studio. In the next challenge, you’ll integrate **Power Automate** for ticket creation and escalation workflows.
+You have built the foundational layer of the IT Support Assistant Copilot that can answer FAQs intelligently using Copilot Studio. In the next challenge, you'll integrate Power Automate for ticket creation and escalation workflows.
